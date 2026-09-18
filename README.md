@@ -1,2 +1,2 @@
 # ong-solaris
-Projeto fictício para projeto de faculdade
+Projeto fictício para faculdade
