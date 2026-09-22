@@ -1,1 +1,639 @@
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#12383a;background:#f7fbf9;line-height:1.6}a{color:inherit;text-decoration:none}.site-header{display:flex;align-items:center;gap:24px;padding:14px 6%;background:#fff;position:sticky;top:0;z-index:2;box-shadow:0 2px 12px #0001}.brand{display:flex;align-items:center;gap:9px;font-weight:700;margin-right:auto}.brand img{width:44px;height:44px}.site-header nav{display:flex;gap:20px;font-size:.92rem}.site-header nav a:hover,.text-link:hover{color:#087f6c}.button{display:inline-block;background:#078b72;color:#fff;border:0;border-radius:8px;padding:12px 20px;font-weight:700;cursor:pointer}.button.small{padding:9px 15px;font-size:.85rem}.button.outline{background:transparent;color:#087f6c;border:1px solid #087f6c}.hero{min-height:520px;padding:70px 7%;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;background:#e5f5ef}.hero h1{font-size:3.3rem;line-height:1.05;margin:10px 0}.hero>img{width:100%;max-height:390px}.actions{display:flex;gap:12px;margin-top:25px}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:700;color:#078b72}.section{max-width:1100px;margin:auto;padding:65px 6%}.section>h2{font-size:2rem;margin-top:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.cards article{background:#fff;border:1px solid #dbe9e4;border-radius:12px;padding:22px;box-shadow:0 5px 18px #0000000a}.cards img{width:100%;height:140px;object-fit:cover;border-radius:8px}.icon{font-size:2rem;background:#d9f3eb;width:58px;height:58px;border-radius:50%;display:grid;place-items:center}.split,.contact{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.split img,.contact img{width:100%;border-radius:12px}.page-hero{padding:70px 7%;background:#e5f5ef}.page-hero h1{font-size:2.8rem;margin:5px 0}.donation{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center;background:#e5f5ef;border-radius:12px;margin-bottom:25px}.donation img{width:100%;border-radius:10px}.form-wrap{max-width:850px;margin:0 auto;padding:50px 6%}.form-wrap form{background:#fff;padding:30px;border-radius:12px;box-shadow:0 5px 25px #0001}fieldset{border:1px solid #cfe1dc;border-radius:10px;margin-bottom:22px;padding:22px}legend{font-weight:700;padding:0 8px;color:#087f6c}label{display:block;font-weight:700;font-size:.9rem;margin:12px 0 5px}input,textarea{width:100%;padding:11px;border:1px solid #bfd2cc;border-radius:6px;font:inherit}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px}.choice{display:flex;gap:25px}.choice label,.check{font-weight:400}.choice input,.check input{width:auto;margin-right:7px}footer{background:#073d43;color:#fff;padding:40px 7%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer a{display:block;color:#d9eeea;font-size:.9rem}footer small{grid-column:1/-1;border-top:1px solid #ffffff33;padding-top:15px}@media(max-width:800px){.site-header{flex-wrap:wrap}.site-header nav{order:3;width:100%;justify-content:center;flex-wrap:wrap}.hero,.split,.contact,.donation{grid-template-columns:1fr}.hero h1{font-size:2.5rem}.cards{grid-template-columns:1fr}.grid2,.grid3{grid-template-columns:1fr}footer{grid-template-columns:1fr}.site-header .button.small{display:none}}
+/* =========================================================
+   ONG SOLARIS — CSS3 / DESIGN SYSTEM
+   Experiência Prática II — Desenvolvimento Front-end
+   ========================================================= */
+
+/* =========================================================
+   1. DESIGN SYSTEM
+   ========================================================= */
+:root {
+    /* ---------- Cores ---------- */
+    --color-primary: #078b72;
+    --color-primary-dark: #087f6c;
+    --color-primary-deep: #073d43;
+
+    --color-text: #12383a;
+    --color-text-light: #d9eeea;
+
+    --color-background: #f7fbf9;
+    --color-surface: #ffffff;
+    --color-surface-soft: #e5f5ef;
+    --color-icon-bg: #d9f3eb;
+
+    --color-border: #dbe9e4;
+    --color-border-form: #cfe1dc;
+    --color-border-input: #bfd2cc;
+
+    --color-white: #ffffff;
+    --color-overlay-light: #ffffff33;
+    --color-shadow: #00000014;
+    --color-shadow-soft: #0000000a;
+
+    /* ---------- Tipografia ---------- */
+    --font-family-base: Arial, sans-serif;
+
+    --font-size-xs: 0.78rem;
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 2rem;
+    --font-size-xl: 3.3rem;
+
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    --line-height-base: 1.6;
+    --line-height-heading: 1.05;
+
+    --letter-spacing-eyebrow: 2px;
+
+    /* ---------- Espaçamentos modulares ---------- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+
+    /* ---------- Raios ---------- */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --radius-xl: 12px;
+
+    /* ---------- Layout ---------- */
+    --container-max: 1100px;
+    --page-gutter: 6%;
+    --section-padding: 65px;
+
+    /* ---------- Transições ---------- */
+    --transition-fast: 180ms ease;
+
+    /* ---------- Sombras ---------- */
+    --shadow-header: 0 2px 12px var(--color-shadow);
+    --shadow-card: 0 5px 18px var(--color-shadow-soft);
+    --shadow-form: 0 5px 25px var(--color-shadow);
+}
+
+/* =========================================================
+   2. RESET E BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    color: var(--color-text);
+    background: var(--color-background);
+    line-height: var(--line-height-base);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* =========================================================
+   3. ACESSIBILIDADE E ESTADOS DE FOCO
+   ========================================================= */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   4. CABEÇALHO E NAVEGAÇÃO
+   ========================================================= */
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: 14px var(--page-gutter);
+    background: var(--color-surface);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-header);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: var(--font-weight-bold);
+    margin-right: auto;
+}
+
+.brand img {
+    width: 44px;
+    height: 44px;
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    font-size: var(--font-size-sm);
+}
+
+.site-header nav a,
+.text-link {
+    transition: color var(--transition-fast);
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible,
+.text-link:hover,
+.text-link:focus-visible {
+    color: var(--color-primary-dark);
+}
+
+/* =========================================================
+   5. BOTÕES
+   ========================================================= */
+.button {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.button:hover {
+    background: var(--color-primary-dark);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+.button.small {
+    padding: 9px 15px;
+    font-size: 0.85rem;
+}
+
+.button.outline {
+    background: transparent;
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.button.outline:hover {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+/* =========================================================
+   6. HERO
+   Sistema macro em CSS Grid de 12 colunas.
+   ========================================================= */
+.hero {
+    min-height: 520px;
+    padding: 70px var(--page-gutter);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 50px;
+    align-items: center;
+    background: var(--color-surface-soft);
+}
+
+.hero > div {
+    grid-column: span 6;
+}
+
+.hero > img {
+    grid-column: span 6;
+    width: 100%;
+    max-height: 390px;
+    object-fit: contain;
+}
+
+.hero h1 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-heading);
+    margin: 10px 0;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: 25px;
+}
+
+/* =========================================================
+   7. TEXTOS DE APOIO
+   ========================================================= */
+.eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-eyebrow);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+/* =========================================================
+   8. SEÇÕES E CONTEÚDO
+   ========================================================= */
+.section {
+    width: min(100%, var(--container-max));
+    margin-inline: auto;
+    padding: var(--section-padding) var(--page-gutter);
+}
+
+.section > h2 {
+    font-size: var(--font-size-lg);
+    margin-top: 0;
+}
+
+.page-hero {
+    padding: 70px var(--page-gutter);
+    background: var(--color-surface-soft);
+}
+
+.page-hero h1 {
+    font-size: 2.8rem;
+    margin: 5px 0;
+}
+
+/* =========================================================
+   9. CARDS
+   Grid responsivo para componentes de conteúdo.
+   ========================================================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.cards article {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 22px;
+    box-shadow: var(--shadow-card);
+}
+
+.cards img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 2rem;
+    background: var(--color-icon-bg);
+    border-radius: 50%;
+}
+
+/* =========================================================
+   10. LAYOUTS INTERNOS
+   Flexbox gerencia alinhamento dos componentes.
+   Grid organiza os grandes blocos.
+   ========================================================= */
+.split,
+.contact {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 45px;
+    align-items: center;
+}
+
+.split > *,
+.contact > * {
+    grid-column: span 6;
+}
+
+.split img,
+.contact img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+}
+
+.donation {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 30px;
+    align-items: center;
+    background: var(--color-surface-soft);
+    border-radius: var(--radius-xl);
+    margin-bottom: 25px;
+    padding: var(--space-5);
+}
+
+.donation img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+}
+
+/* =========================================================
+   11. FORMULÁRIOS
+   ========================================================= */
+.form-wrap {
+    width: min(100%, 850px);
+    margin-inline: auto;
+    padding: 50px var(--page-gutter);
+}
+
+.form-wrap form {
+    background: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-form);
+}
+
+fieldset {
+    border: 1px solid var(--color-border-form);
+    border-radius: var(--radius-lg);
+    margin: 0 0 22px;
+    padding: 22px;
+}
+
+legend {
+    padding: 0 var(--space-2);
+    color: var(--color-primary-dark);
+    font-weight: var(--font-weight-bold);
+}
+
+label {
+    display: block;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    margin: var(--space-3) 0 5px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 11px;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-input);
+    border-radius: var(--radius-sm);
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-primary);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown),
+select:invalid:not(:placeholder-shown) {
+    border-color: #b42318;
+}
+
+input:valid:not(:placeholder-shown),
+textarea:valid:not(:placeholder-shown),
+select:valid:not(:placeholder-shown) {
+    border-color: var(--color-primary);
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.choice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+}
+
+.choice label,
+.check {
+    font-weight: var(--font-weight-regular);
+}
+
+.choice input,
+.check input {
+    width: auto;
+    margin-right: 7px;
+}
+
+/* =========================================================
+   12. RODAPÉ
+   ========================================================= */
+footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    background: var(--color-primary-deep);
+    color: var(--color-white);
+    padding: 40px 7%;
+}
+
+footer a {
+    display: block;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+}
+
+footer a:hover,
+footer a:focus-visible {
+    color: var(--color-white);
+}
+
+footer small {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--color-overlay-light);
+    padding-top: 15px;
+}
+
+/* =========================================================
+   13. RESPONSIVIDADE
+   Breakpoints principais:
+   - 1100px: adaptação para telas intermediárias
+   - 800px: tablet/mobile
+   - 560px: smartphones menores
+   ========================================================= */
+@media (max-width: 1100px) {
+    .hero {
+        gap: var(--space-7);
+    }
+
+    .section {
+        padding-inline: 5%;
+    }
+}
+
+@media (max-width: 800px) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: var(--space-4);
+    }
+
+    .site-header nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .site-header .button.small {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-block: 55px;
+    }
+
+    .hero > div,
+    .hero > img {
+        grid-column: 1;
+    }
+
+    .hero > img {
+        max-height: 320px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .split,
+    .contact {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+    }
+
+    .split > *,
+    .contact > * {
+        grid-column: 1;
+    }
+
+    .donation {
+        grid-template-columns: 1fr;
+    }
+
+    .grid2,
+    .grid3 {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+    }
+
+    footer small {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .site-header {
+        padding-inline: var(--space-4);
+    }
+
+    .site-header nav {
+        gap: var(--space-3);
+        font-size: var(--font-size-sm);
+    }
+
+    .hero,
+    .page-hero {
+        padding-inline: var(--space-4);
+    }
+
+    .hero h1 {
+        font-size: 2.15rem;
+    }
+
+    .section {
+        padding-block: 48px;
+        padding-inline: var(--space-4);
+    }
+
+    .form-wrap {
+        padding-inline: var(--space-4);
+    }
+
+    .form-wrap form {
+        padding: var(--space-5);
+    }
+
+    fieldset {
+        padding: var(--space-4);
+    }
+
+    .actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .actions .button {
+        text-align: center;
+    }
+}
