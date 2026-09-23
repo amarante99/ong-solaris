@@ -10,8 +10,12 @@
 <body>
 <header class="site-header">
   <a class="brand" href="index.html"><img src="assets/logo.svg" alt=""><span>ONG Solaris</span></a>
+  <input class="menu-toggle-input" type="checkbox" id="menu-toggle">
+  <label class="menu-toggle" for="menu-toggle" aria-label="Abrir menu de navegação"><span class="menu-icon"></span></label>
   <nav aria-label="Navegação principal">
-    <a href="index.html">Início</a><a href="projetos.html">Projetos</a><a href="cadastro.html">Cadastro</a><a href="contato.html">Contato</a>
+    <a class="nav-link" href="index.html">Início</a>
+    <div class="nav-item"><a class="nav-link" href="projetos.html">Projetos</a><ul class="submenu"><li><a href="projetos.html#atuacao">Frentes de atuação</a></li><li><a href="projetos.html#doacao">Campanhas de doação</a></li><li><a href="projetos.html#voluntariado">Voluntariado</a></li></ul></div>
+    <a class="nav-link" href="cadastro.html">Cadastro</a><a class="nav-link" href="contato.html">Contato</a>
   </nav>
   <a class="button small" href="cadastro.html">Apoie agora</a>
 </header>
